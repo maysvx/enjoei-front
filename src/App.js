@@ -1,23 +1,30 @@
-import logo from './logo.svg';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import { Container } from 'react-bootstrap';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import './App.css';
+import Menu from './components/Menu';
+import Principal from './pages/page-principal/Principal';
+import Feminino from './pages/page-feminino/Feminino'
+import Masculino from './pages/page-masculino/Masculino'
+import Infantil from './pages/page-infantil/Infantil'
+import Casa from './pages/page-casa/Casa'
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <BrowserRouter>
+        <Menu />
+        <Container>
+          <Routes>
+            <Route path="/" element={<Principal/>} />
+            <Route path="/feminino" element={<Feminino/>} />
+            <Route path="/masculino" element={<Masculino/>} />
+            <Route path="/infantil" element={<Infantil/>} />
+            <Route path="/casa" element={<Casa/>} />
+          </Routes>
+        </Container>
+      </BrowserRouter>
+
     </div>
   );
 }

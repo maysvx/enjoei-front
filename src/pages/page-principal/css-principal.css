@@ -1,0 +1,24 @@
+.texto-h1{
+    color: #F05B78;
+    text-align: center;
+    font-weight: bolder;
+    font-size: x-large;
+}
+
+.texto-p{
+    color: #524F4F;
+    font-size: 20px;
+}
+
+.linha{
+    width: 100%;
+    height: 2px;
+    background-color: #f05b7983;
+}
+.texto-categoria{
+    color: #222222;
+}
+
+body{
+    background-color: #FCFCFC;
+}
