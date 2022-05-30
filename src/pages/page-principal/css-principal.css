@@ -1,0 +1,28 @@
+.texto-h1{
+    color: #524F4F;
+    text-align: center;
+    font-weight: bolder;
+    font-size: x-large;
+}
+
+.texto-p{
+    color: #524F4F;
+    font-size: 20px;
+}
+
+.linha{
+    width: 100%;
+    height: 2px;
+    background-color: #f05b7983;
+}
+.texto-categoria{
+    color: #524F4F;
+}
+
+.link-vermais{
+    padding-left: 80%;
+    padding-top: 50px;
+}
+body{
+    background-color: #FCFCFC;
+}
