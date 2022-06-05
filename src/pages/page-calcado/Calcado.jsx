@@ -112,30 +112,14 @@ const Calcado = () => {
           {errors.tamanho && <span>{errors.tamanho.message}</span>}
         </Form.Group>
 
-        <Form.Group>
+        <Form.Group className="mb-3" controlId="condicao-calcado">
           <Form.Label>Condição</Form.Label>
-          <Form.Select aria-label="Default select example">
-            <option value="1">Novo</option>
-            <option value="2">Semi-novo</option>
-            <option value="3">Usado</option>
-          </Form.Select>
-        </Form.Group>
-
-        <Form.Group className="mb-3" controlId="descricao-calcado">
-          <Form.Label>Descrição</Form.Label>
-          <Form.Control as="textarea" rows={3} placeholder="ex: usado poucas vezes, com alguns arranhões..." />
-        </Form.Group>
-
-        <Form.Label htmlFor="cor-calcado">Selecione a cor do Calçado</Form.Label>
-        <Form.Control
-          type="color"
-          id="cor-calcado"
-          defaultValue="#F05B78"
-          title="cor-calao"
-        ></Form.Control>
-        <Form.Group controlId="imagem-calcado" className="mb-3">
-          <Form.Label>Selecione 01 imagem do seu Calçado</Form.Label>
-          <Form.Control type="file" />
+          <Form.Control type="text" placeholder="ex: novo, usado, seminovo"
+            isInvalid={errors.condicao}
+            {...register("condicao", calcadoValidator.condicao)}
+            onChange={handleChange}
+          />
+          {errors.condicao && <span>{errors.condicao.message}</span>}
         </Form.Group>
       </Form>
       <br />

@@ -71,9 +71,8 @@ const masculinoValidator = {
             message: "O valor mínimo é 1"
         },
     },
-
-    tipo: {
-        required: "O campo VALOR é obrigatório",
+    condicao: {
+        required: "O campo CONDIÇÂO é obrigatório",
         minLength: {
             value: 1,
             message: "Qtd mínima de caracteres não informado"
@@ -81,16 +80,8 @@ const masculinoValidator = {
         maxLength: {
             value: 50,
             message: "Qtd máxima de caracteres ultrapassada"
-        },
-        min: {
-            value: 1,
-            message: "O valor mínimo é 1"
-        },
-    },
-
-    tipo: {
-        required: "O campo NOME é obrigatório",
-    },
+        }
+    }
 }
 
 export default masculinoValidator

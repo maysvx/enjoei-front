@@ -72,8 +72,8 @@ const casaValidator = {
         },
     },
 
-    tipo: {
-        required: "O campo Valor é Obrigatório",
+    condicao: {
+        required: "O campo CONDIÇÂO é obrigatório",
         minLength: {
             value: 1,
             message: "Qtd mínima de caracteres não informado"
@@ -81,23 +81,19 @@ const casaValidator = {
         maxLength: {
             value: 50,
             message: "Qtd máxima de caracteres ultrapassada"
-        },
-        min: {
-            value: 1,
-            message: "O valor mínimo é 1"
-        },
+        }
     },
 
-    descricao: {
+    categoria: {
         minLength: {
             value: 1,
             message: "Qtd mínima de caracteres não informado"
         },
         maxLength: {
-            value: 100,
+            value: 50,
             message: "Qtd máxima de caracteres ultrapassada"
         }
-    },
+    }
 
 }
 

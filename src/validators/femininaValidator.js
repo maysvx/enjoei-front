@@ -1,5 +1,4 @@
-
-const femininoValidator = {
+const femininaValidator = {
     nome: {
         required: "O campo NOME é obrigatório",
         minLength: {
@@ -72,9 +71,8 @@ const femininoValidator = {
             message: "O valor mínimo é 1"
         },
     },
-
-    tipo: {
-        required: "O campo TIPO é obrigatório",
+    condicao: {
+        required: "O campo CONDIÇÂO é obrigatório",
         minLength: {
             value: 1,
             message: "Qtd mínima de caracteres não informado"
@@ -82,22 +80,8 @@ const femininoValidator = {
         maxLength: {
             value: 50,
             message: "Qtd máxima de caracteres ultrapassada"
-        },
-        min: {
-            value: 1,
-            message: "O valor mínimo é 1"
-        },
-    },
-
-    descricao: {
-        minLength: {
-            value: 1,
-            message: "Qtd mínima de caracteres não informado"
-        },
-        maxLength: {
-            value: 100,
-            message: "Qtd máxima de caracteres ultrapassada"
         }
-    },
+    }
 }
-export default femininoValidator
+
+export default femininaValidator

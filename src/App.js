@@ -4,16 +4,16 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import './App.css';
 import Menu from './components/Menu';
 import Principal from './pages/page-principal/Principal';
-import Feminino from './pages/page-feminino/Feminino'
 import Masculino from './pages/page-masculino/Masculino'
 import Infantil from './pages/page-infantil/Infantil'
 import Casa from './pages/page-casa/Casa'
 import Calcado from './pages/page-calcado/Calcado';
 import ExibirCalcados from './pages/page-calcado/ExibirCalcados';
 import ExibirMasculino from './pages/page-masculino/ExibirMasculino';
-import ExibirFeminino from './pages/page-feminino/ExibirFeminino';
 import ExibirInfantil from './pages/page-infantil/Exibirinfantil';
 import ExibirCasa from './pages/page-casa/ExibirCasa';
+import ExibirFeminina from './pages/page-feminina/ExibirFeminina';
+import Feminina from './pages/page-feminina/Feminina';
 
 function App() {
   return (
@@ -24,10 +24,9 @@ function App() {
           <Routes>
             <Route path="/" element={<Principal/>} />
 
-
-            <Route path="/feminino" element={<ExibirFeminino/>} />
-            <Route path="/feminino/create" element={<Feminino/>} />
-            <Route path="/feminino/:id" element={<Feminino/>} />
+            <Route path="/feminina" element={<ExibirFeminina/>} />
+            <Route path="/feminina/create" element={<Feminina/>} />
+            <Route path="/feminina/:id" element={<Feminina/>} />
 
             <Route path="/masculino" element={<ExibirMasculino/>} />
             <Route path="/masculino/create" element={<Masculino/>} />

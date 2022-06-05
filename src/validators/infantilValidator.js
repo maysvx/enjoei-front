@@ -72,16 +72,19 @@ const infantilValidator = {
             message: "O valor mínimo é 1"
         },
     },
-    descricao: {
+
+    condicao: {
+        required: "O campo CONDIÇÂO é obrigatório",
         minLength: {
             value: 1,
             message: "Qtd mínima de caracteres não informado"
         },
         maxLength: {
-            value: 100,
+            value: 50,
             message: "Qtd máxima de caracteres ultrapassada"
         }
-    },
+    }
+
 
 }
 

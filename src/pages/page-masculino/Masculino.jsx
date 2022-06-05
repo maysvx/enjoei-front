@@ -102,9 +102,16 @@ const Masculino = () => {
             {errors.quantidade && <span>{errors.quantidade.message}</span>}
           </Form.Group>
 
-          <Form.Group id="form">
-            <input type='file' id='image'></input>
+          <Form.Group className="mb-3" controlId="condicao-masculino">
+            <Form.Label>Condição</Form.Label>
+            <Form.Control type="text" placeholder="ex: novo, usado, seminovo"
+              isInvalid={errors.condicao}
+              {...register("condicao", masculinoValidator.condicao)}
+              onChange={handleChange}
+            />
+            {errors.condicao && <span>{errors.condicao.message}</span>}
           </Form.Group>
+
         </Form>
         <br />
         <div className='espaco-final'>

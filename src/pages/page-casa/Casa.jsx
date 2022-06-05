@@ -91,32 +91,24 @@ const Casa = () => {
           {errors.quantidade && <span>{errors.quantidade.message}</span>}
         </Form.Group>
 
-        <Form.Group>
-          <Form.Label>Categoria</Form.Label>
-          <Form.Select aria-label="Default select example">
-            <option value="1">Cozinha</option>
-            <option value="2">Quarto</option>
-            <option value="3">Banheiro</option>
-            <option value="3">Decoração</option>
-            <option value="3">Jardim</option>
-            <option value="3">Eletronico</option>
-          </Form.Select>
-        </Form.Group>
-        <Form.Group>
+        <Form.Group className="mb-3" controlId="categoria-casa">
+            <Form.Label>Categoria</Form.Label>
+            <Form.Control type="text" placeholder="ex: cozinha, decoração, eletrodomestico, etc"
+              isInvalid={errors.categoria}
+              {...register("categoria", casaValidator.categoria)}
+              onChange={handleChange}
+            />
+            {errors.categoria && <span>{errors.categoria.message}</span>}
+          </Form.Group>
+
+        <Form.Group className="mb-3" controlId="condicao-casa">
           <Form.Label>Condição</Form.Label>
-          <Form.Select aria-label="Default select example">
-            <option value="1">Novo</option>
-            <option value="2">Semi-novo</option>
-            <option value="3">Usado</option>
-          </Form.Select>
-        </Form.Group>
-        <Form.Group className="mb-3" controlId="descricao-casa">
-          <Form.Label>Descrição</Form.Label>
-          <Form.Control as="textarea" rows={3} placeholder="ex: usado poucas vezes, com alguns arranhões..." />
-        </Form.Group>
-        <Form.Group controlId="imagem-casa" className="mb-3">
-          <Form.Label>Selecione 01 imagem do seu item</Form.Label>
-          <Form.Control type="file" />
+          <Form.Control type="text" placeholder="ex: novo, usado, seminovo"
+            isInvalid={errors.condicao}
+            {...register("condicao", casaValidator.condicao)}
+            onChange={handleChange}
+          />
+          {errors.condicao && <span>{errors.condicao.message}</span>}
         </Form.Group>
       </Form>
       <br />

@@ -102,40 +102,17 @@ const Infantil = () => {
               />
               {errors.quantidade && <span>{errors.quantidade.message}</span>}
             </Form.Group>
-
-            <Form.Group>
-              <Form.Label>Tipo de peça</Form.Label>
-              <Form.Select aria-label="Default select example">
-                <option value="1">Blusa</option>
-                <option value="2">Calça</option>
-                <option value="3">Short/Bermuda</option>
-                <option value="3">Intimo</option>
-                <option value="3">Pijama</option>
-              </Form.Select>
-            </Form.Group>
-            <Form.Group>
+            
+            <Form.Group className="mb-3" controlId="condicao-infantil">
               <Form.Label>Condição</Form.Label>
-              <Form.Select aria-label="Default select example">
-                <option value="1">Novo</option>
-                <option value="2">Semi-novo</option>
-                <option value="3">Usado</option>
-              </Form.Select>
+              <Form.Control type="text" placeholder="ex: novo, usado, seminovo"
+                isInvalid={errors.condicao}
+                {...register("condicao", infantilValidator.condicao)}
+                onChange={handleChange}
+              />
+              {errors.condicao && <span>{errors.condicao.message}</span>}
             </Form.Group>
-            <Form.Group className="mb-3" controlId="descricao">
-              <Form.Label>Descrição</Form.Label>
-              <Form.Control as="textarea" rows={3} placeholder="ex: usado poucas vezes, com alguns arranhões..." />
-            </Form.Group>
-            <Form.Label htmlFor="cor-infantil">Selecione a cor da sua peça</Form.Label>
-            <Form.Control
-              type="color"
-              id="cor-infantil"
-              defaultValue="#F05B78"
-              title="cor-infantil"
-            ></Form.Control>
-            <Form.Group controlId="imagem" className="mb-3">
-              <Form.Label>Selecione 01 imagem da sua peça</Form.Label>
-              <Form.Control type="file" />
-            </Form.Group>
+
           </Form>
           <br />
           <div className='espaco-final'>

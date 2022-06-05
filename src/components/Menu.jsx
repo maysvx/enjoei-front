@@ -20,11 +20,11 @@ const Menu = () => {
                             style={{ maxHeight: '100px' }}
                             navbarScroll
                         >
-                            <Nav.Link href="/feminino" className='text-white'>Feminino <FaFemale /></Nav.Link>
+                            <Nav.Link href="/feminina" className='text-white'>Feminino <FaFemale /></Nav.Link>
                             <Nav.Link href="/masculino" className='text-white'>Masculino <FaMale /></Nav.Link>
                             <Nav.Link href="/infantil" className='text-white'>Infantil <FaBaby /></Nav.Link>
                             <Nav.Link href="/calcado" className='text-white'>Calçados <GiConverseShoe /></Nav.Link>
-                            <Nav.Link href="/casa" className='text-white'>Casa <RiHomeHeartFill /></Nav.Link>
+                            <Nav.Link href="/casa" className='text-white'>Casa e Decoração <RiHomeHeartFill /></Nav.Link>
                         </Nav>
                         <Form className="d-flex light">
                             <FormControl
