@@ -1,11 +1,9 @@
-import { Button } from 'bootstrap'
 import React from 'react'
-import { Container, Form, FormControl, Nav, Navbar, NavDropdown } from 'react-bootstrap'
-import { Link } from 'react-router-dom'
+import { Container, Nav, Navbar,} from 'react-bootstrap'
 import "./css-menu.css"
 import { FaFemale, FaMale, FaBaby, } from 'react-icons/fa'
 import { GiConverseShoe } from 'react-icons/gi'
-import { RiHomeHeartFill, RiSearchEyeLine } from 'react-icons/ri'
+import { RiHomeHeartFill } from 'react-icons/ri'
 
 const Menu = () => {
     return (
@@ -26,15 +24,7 @@ const Menu = () => {
                             <Nav.Link href="/calcado" className='text-white'>Calçados <GiConverseShoe /></Nav.Link>
                             <Nav.Link href="/casa" className='text-white'>Casa e Decoração <RiHomeHeartFill /></Nav.Link>
                         </Nav>
-                        <Form className="d-flex light">
-                            <FormControl
-                                type="search"
-                                placeholder="Buscar..."
-                                className="me-2"
-                                aria-label="Search"
-                            />
-                            <Link to={'/'} className='btn btn-light'> <RiSearchEyeLine /></Link>
-                        </Form>
+                    
                     </Navbar.Collapse>
                 </Container>
             </Navbar>

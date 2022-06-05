@@ -1,8 +1,5 @@
-import { Button } from 'bootstrap'
 import React from 'react'
-import { Card, Col, Container, Row } from 'react-bootstrap'
-import { Link } from 'react-router-dom'
-import {IoIosArrowForward } from 'react-icons/io'
+import { Col, Container, Row } from 'react-bootstrap'
 import "./css-principal.css"
 
 const Principal = () => {
@@ -31,18 +28,6 @@ const Principal = () => {
         </Row>
       </Container>
       <br />
-      <Container>
-        <Row>
-          <Col>
-          <h1 className='texto-categoria'>Feminino</h1>
-          </Col>
-          <Col>
-          <Link to={'/feminino'} className="link-vermais">Ver Mais <IoIosArrowForward/></Link>
-          </Col>
-        </Row>
-
-      </Container>
-
 
     </div>
   )

@@ -1,5 +1,4 @@
 import React, { useEffect } from 'react'
-import "./css-masculino.css"
 import { Container, Form, } from 'react-bootstrap'
 import { Link, useNavigate, useParams } from 'react-router-dom'
 import { IoIosArrowBack } from 'react-icons/io'

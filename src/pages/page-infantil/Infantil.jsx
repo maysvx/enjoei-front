@@ -1,5 +1,4 @@
 import React, { useEffect } from 'react'
-import "./css-infantil.css"
 import { Col, Container, Form, Row } from 'react-bootstrap'
 import { Link, useNavigate, useParams } from 'react-router-dom'
 import { IoIosArrowBack } from 'react-icons/io'
