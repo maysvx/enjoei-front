@@ -2,6 +2,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import { Container } from 'react-bootstrap';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import './App.css';
+import swal from 'sweetalert';
 import Menu from './components/Menu';
 import Principal from './pages/page-principal/Principal';
 import Masculino from './pages/page-masculino/Masculino'

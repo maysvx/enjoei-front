@@ -74,16 +74,18 @@ const calcadoValidator = {
 
     condicao: {
         required: "O campo CONDIÇÂO é obrigatório",
+
+    },
+
+    codigo: {
+        required: "O campo CONDIÇÂO é obrigatório",
         minLength: {
-            value: 1,
+            value: 8,
             message: "Qtd mínima de caracteres não informado"
-        },
-        maxLength: {
-            value: 50,
-            message: "Qtd máxima de caracteres ultrapassada"
         }
-    }
-    
+    },
+
+
 }
 
 export default calcadoValidator

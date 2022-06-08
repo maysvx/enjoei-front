@@ -8,6 +8,7 @@ import { useForm } from 'react-hook-form'
 import infantilValidator from '../../validators/infantilValidator';
 import InfantilService from '../../services/InfantilService';
 import { mask } from 'remask';
+import swal from 'sweetalert2'
 
 
 const Infantil = () => {
@@ -27,6 +28,11 @@ const Infantil = () => {
   }, [])
 
   function salvar(dados) {
+    swal.fire(
+      'Salvo!',
+      '',
+      'success'
+    )
 
     if (params.id) {
       InfantilService.update(params.id, dados)
@@ -101,15 +107,26 @@ const Infantil = () => {
               />
               {errors.quantidade && <span>{errors.quantidade.message}</span>}
             </Form.Group>
-            
-            <Form.Group className="mb-3" controlId="condicao-infantil">
+
+            <Form.Group name='condicao' className='mb-3' controlId="condicao">
               <Form.Label>Condição</Form.Label>
-              <Form.Control type="text" placeholder="ex: novo, usado, seminovo"
-                isInvalid={errors.condicao}
-                {...register("condicao", infantilValidator.condicao)}
+              <Form.Select {...register("condicao")} aria-label="selecione uma opção">
+                <option disabled selected>Condicao</option>
+                <option value="Novo">Novo</option>
+                <option value="Seminovo">Seminovo</option>
+                <option value="Usado">Usado</option>
+              </Form.Select>
+            </Form.Group>
+
+            <Form.Group className="mb-3" controlId="codigo-infantil">
+              <Form.Label>Codigo da peça</Form.Label>
+              <Form.Control type="text" placeholder="ex: 000.000-00"
+                isInvalid={errors.codigo}
+                {...register("codigo", infantilValidator.valor)}
                 onChange={handleChange}
+                mask='999.999-99'
               />
-              {errors.condicao && <span>{errors.condicao.message}</span>}
+              {errors.valor && <span>{errors.valor.message}</span>}
             </Form.Group>
 
           </Form>
@@ -118,8 +135,6 @@ const Infantil = () => {
             <Link to={-1} className="btn btn-lg botao-cancelar">Cancelar <MdOutlineCancel /></Link> <></>
             <Link to={'/infantil'} className="btn btn-lg botao-salvar" onClick={handleSubmit(salvar)}>Publicar <BsCheckCircle /></Link>
           </div>
-
-
         </div>
       </div>
     </div>

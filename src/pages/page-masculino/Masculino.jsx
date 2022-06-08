@@ -8,6 +8,7 @@ import masculinoValidator from '../../validators/masculinoValidator';
 import MasculinoService from '../../services/MasculinoService';
 import { useForm } from 'react-hook-form'
 import { mask } from 'remask';
+import swal from 'sweetalert2'
 
 
 const Masculino = () => {
@@ -27,6 +28,11 @@ const Masculino = () => {
   }, [])
 
   function salvar(dados) {
+    swal.fire(
+      'Salvo!',
+      '',
+      'success'
+    )
 
     if (params.id) {
       MasculinoService.update(params.id, dados)
@@ -89,6 +95,7 @@ const Masculino = () => {
               onChange={handleChange}
             />
             {errors.valor && <span>{errors.valor.message}</span>}
+
           </Form.Group>
 
           <Form.Group className="mb-3" controlId="quantidade-masculino">
@@ -101,14 +108,25 @@ const Masculino = () => {
             {errors.quantidade && <span>{errors.quantidade.message}</span>}
           </Form.Group>
 
-          <Form.Group className="mb-3" controlId="condicao-masculino">
+          <Form.Group name='condicao' className='mb-3' controlId="condicao">
             <Form.Label>Condição</Form.Label>
-            <Form.Control type="text" placeholder="ex: novo, usado, seminovo"
-              isInvalid={errors.condicao}
-              {...register("condicao", masculinoValidator.condicao)}
+            <Form.Select {...register("condicao")} aria-label="selecione uma opção">
+              <option disabled selected>Condicao</option>
+              <option value="Novo">Novo</option>
+              <option value="Seminovo">Seminovo</option>
+              <option value="Usado">Usado</option>
+            </Form.Select>
+          </Form.Group>
+
+          <Form.Group className="mb-3" controlId="codigo-infantil">
+            <Form.Label>Codigo da peça</Form.Label>
+            <Form.Control type="text" placeholder="ex: 000.000-00"
+              isInvalid={errors.codigo}
+              {...register("codigo", masculinoValidator.valor)}
               onChange={handleChange}
+              mask='999.999-99'
             />
-            {errors.condicao && <span>{errors.condicao.message}</span>}
+            {errors.valor && <span>{errors.valor.message}</span>}
           </Form.Group>
 
         </Form>

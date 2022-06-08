@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom'
 import { IoIosArrowBack, IoIosAdd } from 'react-icons/io'
 import CasaService from '../../services/CasaService';
 import { BsTrash, BsPencilFill, } from 'react-icons/bs'
+import swal from 'sweetalert2';
 
 const ExibirCasa = () => {
 
@@ -16,6 +17,11 @@ const ExibirCasa = () => {
   }, [])
 
   function apagar(id) {
+    swal.fire(
+      'Excluido!',
+      '',
+      'success'
+    )
     if (window.confirm('Deseja realmente excluir o registro?')) {
       CasaService.delete(id)
       setCasas(CasaService.getAll())
@@ -28,7 +34,7 @@ const ExibirCasa = () => {
         <Container fluid>
           <Row>
             <Col>
-              <h1 className='h1-calcado'> <Link className='' to={-1}> <IoIosArrowBack className='seta-voltar' /></Link> Casa</h1>
+              <h1 className='h1-calcado'> <Link className='' to={-1}> <IoIosArrowBack className='seta-voltar' /></Link> Casa e Decoração</h1>
             </Col>
             <Col>
               <div className="espacamento">

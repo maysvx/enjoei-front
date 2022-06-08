@@ -5,6 +5,7 @@ import { IoIosArrowBack, IoIosAdd } from 'react-icons/io'
 import "./css-calcado.css"
 import CalcadoService from '../../services/CalcadoService';
 import { BsTrash, BsPencilFill, } from 'react-icons/bs'
+import swal from 'sweetalert2'
 
 const ExibirCalcados = () => {
     const [calcados, setCalcados] = useState([])
@@ -16,6 +17,11 @@ const ExibirCalcados = () => {
     }, [])
 
     function apagar(id) {
+        swal.fire(
+            'Excluido!',
+            '',
+            'success'
+          )
         if (window.confirm('Deseja realmente excluir o registro?')) {
             CalcadoService.delete(id)
             setCalcados(CalcadoService.getAll())
@@ -64,6 +70,9 @@ const ExibirCalcados = () => {
                                     </ListGroupItem>
                                     <ListGroupItem>
                                         Condição: {item.condicao}
+                                    </ListGroupItem>
+                                    <ListGroupItem>
+                                        Codigo: {item.codigo}
                                     </ListGroupItem>
                                 </ListGroup>
                             </Card.Body>

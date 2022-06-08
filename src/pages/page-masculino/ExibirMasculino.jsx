@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from 'react'
 import { IoIosArrowBack, IoIosAdd } from 'react-icons/io'
-import { Button, Card, Col, Container, ListGroup, ListGroupItem, Row, Table } from 'react-bootstrap'
+import { Button, Card, Carousel, Col, Container, ListGroup, ListGroupItem, Row, Table } from 'react-bootstrap'
 import { Link } from 'react-router-dom'
 import MasculinoService from '../../services/MasculinoService';
 import { BsTrash, BsPencilFill, } from 'react-icons/bs'
-import 'bootstrap/dist/css/bootstrap.min.css';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import swal from 'sweetalert2';
 
 
 const ExibirMasculino = () => {
@@ -18,6 +19,11 @@ const ExibirMasculino = () => {
   }, [])
 
   function apagar(id) {
+    swal.fire(
+      'Excluido!',
+      '',
+      'success'
+    )
     if (window.confirm('Deseja realmente excluir o registro?')) {
       MasculinoService.delete(id)
       setMasculinos(MasculinoService.getAll())
@@ -78,6 +84,8 @@ const ExibirMasculino = () => {
         ))
         }
       </Row>
+      <br />
+      <br />
     </div>
   )
 }

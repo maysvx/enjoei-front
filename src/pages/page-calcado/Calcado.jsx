@@ -9,6 +9,7 @@ import calcadoValidator from '../../validators/calcadoValidator';
 import CalcadoService from '../../services/CalcadoService';
 import { useForm } from 'react-hook-form';
 import { mask } from 'remask';
+import swal from 'sweetalert2'
 
 const Calcado = () => {
 
@@ -27,6 +28,11 @@ const Calcado = () => {
   }, [])
 
   function salvar(dados) {
+    swal.fire(
+      'Salvo!',
+      '',
+      'success'
+    )
 
     if (params.id) {
       CalcadoService.update(params.id, dados)
@@ -108,18 +114,30 @@ const Calcado = () => {
             isInvalid={errors.tamanho}
             {...register("tamanho", calcadoValidator.tamanho)}
             onChange={handleChange}
+            mask='99'
           />
           {errors.tamanho && <span>{errors.tamanho.message}</span>}
         </Form.Group>
 
-        <Form.Group className="mb-3" controlId="condicao-calcado">
+        <Form.Group name='condicao' className='mb-3' controlId="condicao">
           <Form.Label>Condição</Form.Label>
-          <Form.Control type="text" placeholder="ex: novo, usado, seminovo"
-            isInvalid={errors.condicao}
-            {...register("condicao", calcadoValidator.condicao)}
+          <Form.Select {...register("condicao")} aria-label="selecione uma opção">
+            <option disabled selected>Condicao</option> 
+            <option value="Novo">Novo</option>
+            <option value="Seminovo">Seminovo</option>
+            <option value="Usado">Usado</option>
+          </Form.Select>
+        </Form.Group>
+
+        <Form.Group className="mb-3" controlId="codigo-calcado">
+          <Form.Label>Codigo da peça</Form.Label>
+          <Form.Control type="text" placeholder="ex: 000.000-00"
+            isInvalid={errors.codigo}
+            {...register("codigo", calcadoValidator.valor)}
             onChange={handleChange}
+            mask='999.999-99'
           />
-          {errors.condicao && <span>{errors.condicao.message}</span>}
+          {errors.valor && <span>{errors.valor.message}</span>}
         </Form.Group>
       </Form>
       <br />

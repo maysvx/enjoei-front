@@ -8,6 +8,7 @@ import casaValidator from '../../validators/casaValidator';
 import CasaService from '../../services/CasaService';
 import { useForm } from 'react-hook-form'
 import { mask } from 'remask';
+import swal from 'sweetalert2'
 
 
 const Casa = () => {
@@ -28,6 +29,11 @@ const Casa = () => {
 
 
   function salvar(dados) {
+    swal.fire(
+      'Salvo!',
+      '',
+      'success'
+    )
 
     if (params.id) {
       CasaService.update(params.id, dados)
@@ -90,24 +96,36 @@ const Casa = () => {
           {errors.quantidade && <span>{errors.quantidade.message}</span>}
         </Form.Group>
 
-        <Form.Group className="mb-3" controlId="categoria-casa">
-            <Form.Label>Categoria</Form.Label>
-            <Form.Control type="text" placeholder="ex: cozinha, decoração, eletrodomestico, etc"
-              isInvalid={errors.categoria}
-              {...register("categoria", casaValidator.categoria)}
-              onChange={handleChange}
-            />
-            {errors.categoria && <span>{errors.categoria.message}</span>}
-          </Form.Group>
-
-        <Form.Group className="mb-3" controlId="condicao-casa">
+        <Form.Group name='condicao' className='mb-3' controlId="condicao">
           <Form.Label>Condição</Form.Label>
-          <Form.Control type="text" placeholder="ex: novo, usado, seminovo"
-            isInvalid={errors.condicao}
-            {...register("condicao", casaValidator.condicao)}
+          <Form.Select {...register("condicao")} aria-label="selecione uma opção">
+            <option disabled selected>Condicao</option>
+            <option value="Novo">Novo</option>
+            <option value="Seminovo">Seminovo</option>
+            <option value="Usado">Usado</option>
+          </Form.Select>
+        </Form.Group>
+
+        <Form.Group name='categoria' className='mb-3' controlId="categoria">
+          <Form.Label>Categoria</Form.Label>
+          <Form.Select {...register("categoria")} aria-label="selecione uma opção">
+            <option disabled selected>Categoria</option>
+            <option value="Decoracao">Decoração</option>
+            <option value="Moveis">Moveis</option>
+            <option value="Jardim">Jardim</option>
+            <option value="Outros">Outros</option>
+          </Form.Select>
+        </Form.Group>
+
+        <Form.Group className="mb-3" controlId="codigo-casa">
+          <Form.Label>Codigo da peça</Form.Label>
+          <Form.Control type="text" placeholder="ex: 000.000-00"
+            isInvalid={errors.codigo}
+            {...register("codigo", casaValidator.valor)}
             onChange={handleChange}
+            mask='999.999-99'
           />
-          {errors.condicao && <span>{errors.condicao.message}</span>}
+          {errors.valor && <span>{errors.valor.message}</span>}
         </Form.Group>
       </Form>
       <br />

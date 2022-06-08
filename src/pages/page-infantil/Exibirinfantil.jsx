@@ -4,6 +4,8 @@ import { Button, Card, Col, Container, ListGroup, ListGroupItem, Row, Table } fr
 import { Link } from 'react-router-dom'
 import InfantilService from '../../services/InfantilService';
 import { BsTrash, BsPencilFill, } from 'react-icons/bs'
+import swal from 'sweetalert2';
+import { toHaveErrorMessage } from '@testing-library/jest-dom/dist/matchers';
 
 const Exibirinfantil = () => {
 
@@ -16,6 +18,11 @@ const Exibirinfantil = () => {
   }, [])
 
   function apagar(id) {
+    swal.fire(
+      'Excluido!',
+      '',
+      'success'
+    )
     if (window.confirm('Deseja realmente excluir o registro?')) {
       InfantilService.delete(id)
       setInfantis(InfantilService.getAll())
@@ -64,6 +71,9 @@ const Exibirinfantil = () => {
                   </ListGroupItem>
                   <ListGroupItem>
                     Condição: {item.condicao}
+                  </ListGroupItem>
+                  <ListGroupItem>
+                    Codigo: {item.codigo}
                   </ListGroupItem>
                 </ListGroup>
               </Card.Body>

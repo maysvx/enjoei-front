@@ -8,6 +8,7 @@ import femininaValidator from '../../validators/femininaValidator';
 import FemininaService from '../../services/FemininaService';
 import { useForm } from 'react-hook-form'
 import { mask } from 'remask';
+import swal from 'sweetalert2'
 
 const Feminina = () => {
 
@@ -26,6 +27,11 @@ const Feminina = () => {
     }, [])
 
     function salvar(dados) {
+        swal.fire(
+            'Salvo!',
+            '',
+            'success'
+          )
 
         if (params.id) {
             FemininaService.update(params.id, dados)
@@ -98,17 +104,28 @@ const Feminina = () => {
                         {errors.quantidade && <span>{errors.quantidade.message}</span>}
                     </Form.Group>
 
-                    <Form.Group className="mb-3" controlId="condicao-feminina">
+                    <Form.Group name='condicao' className='mb-3' controlId="condicao">
                         <Form.Label>Condição</Form.Label>
-                        <Form.Control type="text" placeholder="ex: novo, usado, seminovo"
-                            isInvalid={errors.condicao}
-                            {...register("condicao", femininaValidator.condicao)}
-                            onChange={handleChange}
-                        />
-                        {errors.condicao && <span>{errors.condicao.message}</span>}
+                        <Form.Select {...register("condicao")} aria-label="selecione uma opção">
+                            <option disabled selected>Condicao</option>
+                            <option value="Novo">Novo</option>
+                            <option value="Seminovo">Seminovo</option>
+                            <option value="Usado">Usado</option>
+                        </Form.Select>
                     </Form.Group>
 
-                </Form> 
+                    <Form.Group className="mb-3" controlId="codigo-feminina">
+                        <Form.Label>Codigo da peça</Form.Label>
+                        <Form.Control type="text" placeholder="ex: 000.000-00"
+                            isInvalid={errors.codigo}
+                            {...register("codigo", femininaValidator.valor)}
+                            onChange={handleChange}
+                            mask = '999.999-99'
+                        />
+                        {errors.valor && <span>{errors.valor.message}</span>}
+                    </Form.Group>
+
+                </Form>
                 <br />
                 <div className='espaco-final'>
                     <Link to={-1} className="btn btn-lg botao-cancelar">Cancelar <MdOutlineCancel /> </Link> <></>
